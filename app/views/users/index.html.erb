@@ -1,0 +1,7 @@
+'Welcome'
+<% if current_user %>
+  <%= current_user.email %>
+<% end %>
+<% @users.each do |u| %>
+  <p><%=	 link_to u.email, user_path(u) %></p>
+<% end %>

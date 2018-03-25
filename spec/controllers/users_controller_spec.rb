@@ -9,6 +9,7 @@ describe UsersController do
 
       it 'does not allow the request' do
         expect {
+          # @request.env['HTTP_REFERER'] = 'http://localhost:3000/'
           delete :destroy, id: user.id
         }.not_to change(User, :count)
       end
@@ -23,6 +24,7 @@ describe UsersController do
 
       it 'does not allow the request' do
         expect {
+          @request.env['HTTP_REFERER'] = 'http://localhost:3000/'
           delete :destroy, id: user.id
         }.not_to change(User, :count)
       end
@@ -37,6 +39,7 @@ describe UsersController do
 
       it 'allows the request' do
         expect {
+          # @request.env['HTTP_REFERER'] = 'http://localhost:3000/'
           delete :destroy, id: user.id
         }.to change(User, :count).by(-1)
       end

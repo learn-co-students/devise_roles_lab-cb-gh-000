@@ -9,6 +9,7 @@ describe PostsController do
         created_post = create(:post, content: 'bar')
 
         expect {
+          @request.env['HTTP_REFERER'] = 'http://localhost:3000/'
           post :update, id: created_post.id, post: { content: 'foo' }
         }.not_to change(created_post, :content)
       end
