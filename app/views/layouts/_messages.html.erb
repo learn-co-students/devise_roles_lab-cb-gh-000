@@ -1,0 +1,6 @@
+<% flash.each do |k, v| %>
+  <% if v.is_a?(String) %>
+    <%= content_tag :div, v, class: "flash_#{k}" %>
+    <% end %>
+<% end %>
+<%= current_user.try(:role) %>
